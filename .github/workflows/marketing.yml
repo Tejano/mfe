@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - 'packages/marketing/**'
-      - 'packages/.github/workflows/container.yml'
+      - 'packages/.github/workflows/marketing.yml'
 
 defaults:
   run:
