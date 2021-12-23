@@ -6,7 +6,6 @@ import {
   createGenerateClassName,
 } from '@material-ui/core/styles';
 import Progress from './components/Progress';
-//import mount from 'marketing/MarketingApp';
 const MarketingLazy = lazy(() => import('./components/MarketingApp'));
 const AuthLazy = lazy(() => import('./components/AuthApp'));
 const generateClassName = createGenerateClassName({

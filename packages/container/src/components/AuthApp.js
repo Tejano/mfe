@@ -1,7 +1,7 @@
 import { mount } from 'auth/AuthApp';
 import React, { useRef, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-console.log('AuthApp');
+
 export default ({onSignIn}) => {
   const ref = useRef(null);
   const history = useHistory();
@@ -18,6 +18,6 @@ export default ({onSignIn}) => {
     });
     history.listen(onParentNavigate);
   }, []);
-console.log('After UseEffect AuthApp');
+
   return <div ref={ref} />;
 };
