@@ -2,15 +2,15 @@ import App from './App';
 import React from 'react';
 import ReactDom from 'react-dom';
 import { createMemoryHistory, createBrowserHistory} from 'history';
-// Mount function to start-up marketing
-const mount = (el, { onNavigate ,defaultHistory, initialPath }) => {
+// Mount function to start-up authentication
+const mount = (el, { onSignIn,onNavigate ,defaultHistory,initialPath}) => {
   const history = defaultHistory || createMemoryHistory({
     initialEntries: [initialPath]
   });
   if (onNavigate) {
     history.listen(onNavigate);
   }
-  ReactDom.render(<App history={history} />, el);
+  ReactDom.render(<App onSignIn={onSignIn} history={history} />, el);
   return {
     onParentNavigate({ pathname: nextPathname }) {
       const { pathname } = history.location
@@ -25,7 +25,7 @@ const mount = (el, { onNavigate ,defaultHistory, initialPath }) => {
 //If we are in development and in isolation,
 // call mount immediately
 if (process.env.NODE_ENV === 'development') {
-  const devRoot = document.querySelector('#_marketing-dev-root');
+  const devRoot = document.querySelector('#_auth-dev-root');
   if (devRoot) {
     mount(devRoot, {defaultHistory: createBrowserHistory()});
   }
